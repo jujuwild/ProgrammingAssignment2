@@ -13,11 +13,6 @@
 ###################################
 
 makeCacheMatrix <- function(x = matrix()) {
-  # Example input: Insert matrix e.g x<-matrix(rnorm(64),8,8)
-  ## To check cached values: 
-  # xMat<-makeCacheMatrix(x)  # Run the function
-  # parent.env(xMat$getenv())$m  # Check the cached mean
-  # environment(xMat$getmean)  # refer to environment of "m"
   m<-NULL  # assigns NULL to a variable within the current environment 
   evn <- environment()  # Save environment
   y<-NULL 
@@ -47,7 +42,6 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(xMat= m(), ...) {
   ## Return a matrix that is the inverse of 'x'
-  # Run function e.g. like this: minv<-cacheSolve(xMat = m)
   # Compares matrix to what was there before!
   m <- xMat$getinverse() # if an inverse has already been calculated this gets it
   if(!is.null(m)){ # check to see if cacheSolve has been run before
